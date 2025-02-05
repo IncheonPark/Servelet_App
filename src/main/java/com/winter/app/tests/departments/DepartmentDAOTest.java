@@ -11,14 +11,14 @@ public class DepartmentDAOTest {
 		// TODO Auto-generated method stub
 
 		DepartmentDAO dao = new DepartmentDAO();
+		
 		try {
-			List<DepartmentDTO> list = dao.getList();
-			
+			List<DepartmentDTO> list = dao.getList();			
 			System.out.println(list.size());
 			
-			DepartmentDTO dto = dao.getDetail();
-			
-			System.out.println(dto.getDepartment_name());
+//			
+//			DepartmentDTO dto = dao.getDetail();
+//			System.out.println(dto.getDepartment_name());
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

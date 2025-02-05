@@ -13,19 +13,18 @@ public class LocationDAOTest {
 		LocationDAO dao = new LocationDAO();
 		
 		try {		
-		List<LocationDTO> list = dao.getList();
-		System.out.println(list.size());
+			List<LocationDTO> list = dao.getList();
+			System.out.println(list.size());
 		
-		LocationDTO dto = dao.getDetail();
-		System.out.println(dto.getStreet_address());
-		
+//		
+//		LocationDTO dto = dao.getDetail();
+//		System.out.println(dto.getStreet_address());		
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			
-		}
-		
+		}		
 
 	}
 

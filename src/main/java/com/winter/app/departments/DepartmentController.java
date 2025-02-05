@@ -67,6 +67,7 @@ public class DepartmentController extends HttpServlet {
 			StringBuffer url =  request.getRequestURL();
 			String uri = request.getRequestURI(); // 자기 내부에서 쓰는 식별자, IP 및 port 필요 없음
 			String result = useSubString(uri);
+			String parameter = request.getParameter("department_id");//인수를 키로 써서 밸류를 받아옴
 			
 //		System.out.println(method);
 //		System.out.println(url.toString());
@@ -105,7 +106,7 @@ public class DepartmentController extends HttpServlet {
 				writer.close();
 				
 			} else if (result.equals("detail.do")) {
-				departmentDAO.getDetail();
+				//departmentDAO.getDetail();
 				
 			} else {
 				System.out.println("Sorry URL's not correct");

@@ -19,7 +19,7 @@ public class DepartmentDAO {
 		System.out.println("부서 리스트 조회");
 		
 		Connection con = DBConnection.getConnection();
-		String sql = "SELECT * FROM DEPARTMENTS";
+		String sql = "SELECT * FROM DEPARTMENTS ORDER BY DEPARTMENT_ID DESC";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		
@@ -44,7 +44,7 @@ public class DepartmentDAO {
 	
 	
 	// 한 부서의 정보 조회
-	public DepartmentDTO getDetail() throws Exception {
+	public DepartmentDTO getDetail(DepartmentDTO dto) throws Exception {
 		
 		System.out.println("한개 부서 정보 조회");
 		
@@ -54,23 +54,52 @@ public class DepartmentDAO {
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		
-		st.setString(1, "100");
+		st.setLong(1, dto.getDepartment_id());
 		
-		ResultSet rs = st.executeQuery();
+		ResultSet rs = st.executeQuery();				
 		
-		DepartmentDTO dto = new DepartmentDTO();
-		
-		while(rs.next()) {
+		if(rs.next()) {
 			dto.setDepartment_id(rs.getLong("DEPARTMENT_ID"));
 			dto.setDepartment_name(rs.getString("DEPARTMENT_NAME"));
 			dto.setManager_id(rs.getLong("MANAGER_ID"));
 			dto.setLocation_id(rs.getLong("LOCATION_ID"));
+			
+		} else {
+			dto = null;
+			
 		}
 		
 		DBConnection.disConnection(rs, st, con);
 		return dto;
 						
 	}
+	
+	
+	//
+	public int add(DepartmentDTO dto) throws Exception {
+		
+		Connection con = DBConnection.getConnection();
+		String sql = "INSERT INTO DEPARTMENTS (DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, "
+				+ "LOCATION_ID) VALUES (DEPARTMENTS_SEQ.NEXTVAL, ?, ?, ?)";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setString(1, dto.getDepartment_name());
+		st.setLong(2, dto.getManager_id());
+		st.setLong(3, dto.getLocation_id());
+		
+		int result = 0;
+		result = st.executeUpdate();
+		
+		DBConnection.disConnection(st, con);
+		return result;
+		
+	}
+	
+	
+	
+	
+	
+	
 	
 
 }
