@@ -31,6 +31,9 @@
 <body>
 	<h1>부서 등록 진행 페이지</h1>
 	
+	<a href="/">HOME</a>
+	<a href="./list.jsp">LIST</a>
+	
 	<% if (result > 0) { %>
 		<h3>부서 등록 성공</h3>
 		

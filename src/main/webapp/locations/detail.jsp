@@ -29,6 +29,9 @@
 		<h3><%= dto.getCity() %></h3>
 		<h3><%= dto.getStreet_address() %></h3>
 		
+		<a href="./deleteProcess.jsp?location_id=<%= dto.getLocation_id() %>" >지역 삭제</a>
+		<a href="./update.jsp?location_id=<%= dto.getLocation_id() %>">지역 수정</a>
+		
 	<% } else { %>
 		<h3>없는 지역입니다.</h3>
 	

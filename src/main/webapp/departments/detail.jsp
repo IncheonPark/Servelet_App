@@ -29,6 +29,9 @@
 		<h3><%= dto.getDepartment_name() %></h3>
 		<h3><%= dto.getManager_id() %></h3>
 		
+		<a href="./deleteProcess.jsp?department_id=<%= dto.getDepartment_id() %>">부서 삭제</a>
+		<a href="./update.jsp?department_id=<%= dto.getDepartment_id() %>">부서 수정</a>
+		
 	<% } else { %>
 		<h3>없는 부서입니다.</h3>
 		
