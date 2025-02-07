@@ -8,6 +8,9 @@
 </head>
 <body>
 	<h1>New Home Page</h1>
+
+	<h3>Home Page</h3>
+	<h3>Home Page</h3>
 	
 	<a href="./departments/list.jsp">Department List</a>
 	<a href="./locations/list.jsp">Location List</a>
