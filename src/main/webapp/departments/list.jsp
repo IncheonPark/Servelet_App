@@ -18,56 +18,60 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<style type="text/css">
-
-	table {
-		width: 40%;
-		margin: 0 auto;
-		border: 1px solid red;
-		border-collapse: collapse;
-	}
-	
-	table td, table th {
-		border: 1px solid gold;
-		height: 50px;
-	}
-	
-</style>
+<link rel="stylesheet" href="/resources/css/reset.css">
+<link rel="stylesheet" href="/resources/css/layout.css">
+<link rel="stylesheet" href="/resources/css/list_table.css">
 
 </head>
 <body>
-	
-	<h3><a href="/">홈으로 가기</a></h3>
-	<div>
-		<a href="./add.jsp">부서 등록</a>
-	</div>
-	
-	<h1>Department List</h1>
-	
-	<table>
-		<thead>
-			<tr>
-				<th>Dept_id</th> <th>Dept_name</th>
-			</tr>
-		</thead>
+	<!-- Sementic tag -->
+	<!-- JSP 파일 불러오기 : header.jsp -->
+	<%@ include file="/template/header.jsp"%>
+
+	<section class="contents wrap_left">
+		<div class="left contents_left">
+			
+			<%@ include file="/template/nav.jsp" %>
+			
+		</div>
+		<div class="right contents_right">
 		
-		<tbody>
-			<% for (int i=0; i < list.size(); i++) { %>
-			<tr>
-				<td>
-					<%=	list.get(i).getDepartment_id() %>
-				</td>
-				<td>	
-					<a href="./detail.jsp?department_id=<%= list.get(i).getDepartment_id() %>">
-					<%= list.get(i).getDepartment_name() %></a>
-				</td>
-			</tr>
-			<% } %>
-		</tbody>
-	</table>
+			<h3><a href="/">홈으로 가기</a></h3>
+			<div>
+				<a href="./add.jsp">부서 등록</a>
+			</div>
+			
+			<h1>Department List</h1>
+			
+			<div class="contents_right_list">
+				<table class="table_shadow">
+					<thead>
+						<tr>
+							<th>Dept_id</th> <th>Dept_name</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						<% for (int i=0; i < list.size(); i++) { %>
+						<tr>
+							<td>
+								<%=	list.get(i).getDepartment_id() %>
+							</td>
+							<td>	
+								<a href="./detail.jsp?department_id=<%= list.get(i).getDepartment_id() %>">
+								<%= list.get(i).getDepartment_name() %></a>
+							</td>
+						</tr>
+						<% } %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+	<%@ include file="/template/footer.jsp"%>
 	
-	
-	
+
 
 </body>
 </html>

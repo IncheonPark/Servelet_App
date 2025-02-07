@@ -1,0 +1,25 @@
+
+.contents_right_list {
+	width: 80%;
+	margin: auto;
+	
+    
+}
+
+.table_shadow {
+    width: 80%;
+    box-shadow: 0 0 10px rgba(196, 191, 191, 0.15);
+    border-radius:10px;
+    overflow: hidden;
+    margin: auto;
+}
+
+.table_shadow th, .table_shadow td {
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.table_shadow thead {
+    background-color: #f4f4f4;
+}

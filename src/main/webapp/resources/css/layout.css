@@ -1,0 +1,115 @@
+
+	/* 공통 영역*/
+	.wrap_left {
+		display: flex;
+	}
+
+	.left {
+		width:15%;
+		height: 100%;
+	}
+
+	.right {
+		width:85%;
+		height: 100%;
+	}
+
+	/* header 영역*/
+	header {
+		width: 100%;
+		height: 70px;		
+	}
+
+
+	.logo {
+		background-color:green;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.logo img {
+		width: 50px;
+		height: 50px;
+	}
+
+	.menu {
+		background-color:silver;
+		border-left: 3px solid black;
+
+	}
+	
+	/* contents 영역*/
+	.contents {
+		width: 100%;
+		border-top: 3px solid black;
+		border-bottom: 3px solid black;
+	}
+
+	.contents_left {
+		background-color: gold;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height:800px;
+	}
+
+	.sectionMenu {
+		background-color: orange;
+		width: 80%;
+		height: 80%;
+		
+	}
+
+	.sectionMenu div a {
+		text-decoration-line: none;
+		font-weight:bold;
+		color: inherit;
+	}
+
+	.sectionMenu div {
+		background-color: white;
+		width: 80%;
+		height: 10%;
+		margin: 10% 10% 10% 10%;		
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.contents_right {
+		min-height:800px;
+		border-left: 3px solid black;
+	}
+
+	/* footer 영역*/
+	footer {
+		width: 100%;
+		height: 150px;
+		background-color:silver;
+	}
+
+	.footer_right {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	.footerMenu {
+		background-color: orange;
+		width:80%;
+		height:80%;
+	}
+
+	.footerMenu div {
+		background-color: white;
+		width: 80%;
+		height: 10%;
+		margin: 10% 10% 10% 10%;		
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+
+

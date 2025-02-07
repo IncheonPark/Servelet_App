@@ -17,26 +17,47 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<link rel="stylesheet" href="/resources/css/reset.css">
+<link rel="stylesheet" href="/resources/css/layout.css">
+
 </head>
 <body>
+	<!-- Sementic tag -->
+	<!-- JSP 파일 불러오기 : header.jsp -->
+	<%@ include file="/template/header.jsp"%>
 
-	<h3><a href="/">홈으로 가기</a></h3>
-	
-	<h1>Dept Detail Page</h1>
-	
-	<% if(dto != null) { %>
-		<h3><%= dto.getDepartment_id() %></h3>
-		<h3><%= dto.getDepartment_name() %></h3>
-		<h3><%= dto.getManager_id() %></h3>
+	<section class="contents wrap_left">
+		<div class="left contents_left">
+			
+			<%@ include file="/template/nav.jsp" %>
+			
+		</div>
+		<div class="right contents_right">
 		
-		<a href="./deleteProcess.jsp?department_id=<%= dto.getDepartment_id() %>">부서 삭제</a>
-		<a href="./update.jsp?department_id=<%= dto.getDepartment_id() %>">부서 수정</a>
-		
-	<% } else { %>
-		<h3>없는 부서입니다.</h3>
-		
-	<% } %>
+			<h3><a href="/">홈으로 가기</a></h3>
 	
+			<h1>Dept Detail Page</h1>
+			
+			<% if(dto != null) { %>
+				<h3><%= dto.getDepartment_id() %></h3>
+				<h3><%= dto.getDepartment_name() %></h3>
+				<h3><%= dto.getManager_id() %></h3>
+				
+				<a href="./deleteProcess.jsp?department_id=<%= dto.getDepartment_id() %>">부서 삭제</a>
+				<a href="./update.jsp?department_id=<%= dto.getDepartment_id() %>">부서 수정</a>
+				
+			<% } else { %>
+				<h3>없는 부서입니다.</h3>
+				
+			<% } %>
+		
+		</div>
+	</section>
+
+	<%@ include file="/template/footer.jsp"%>
+	
+
 
 </body>
 </html>
