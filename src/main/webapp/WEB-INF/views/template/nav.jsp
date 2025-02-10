@@ -7,16 +7,16 @@
 <body>
 	<nav class="left sectionMenu">
 		<div>
-			<a href="/departments/list.jsp">사원 관리</a>
+			<a href="/departments/list.do">사원 관리</a>
 		</div>
 		<div>
-			<a href="/departments/list.jsp">부서 관리</a>
+			<a href="/departments/list.do">부서 관리</a>
 		</div>
 		<div>
-			<a href="/locations/list.jsp">지역 관리</a>
+			<a href="/locations/list.do">지역 관리</a>
 		</div>
 		<div>
-			<a href="/locations/list.jsp">국가 관리</a>
+			<a href="/locations/list.do">국가 관리</a>
 		</div>
 
 	</nav>

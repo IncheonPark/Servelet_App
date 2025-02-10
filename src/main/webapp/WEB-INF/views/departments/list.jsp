@@ -7,8 +7,8 @@
 <!-- 자바 코드는 % 사용-->    
 <% 
 	// '스크립틀릿'이라 부른다.
-	DepartmentDAO departmentDAO = new DepartmentDAO();
-	List<DepartmentDTO> list = departmentDAO.getList();
+	Object dtoList = request.getAttribute("list");
+	List<DepartmentDTO> list = (List<DepartmentDTO>)dtoList;
 %>    
     
     
@@ -26,19 +26,19 @@
 <body>
 	<!-- Sementic tag -->
 	<!-- JSP 파일 불러오기 : header.jsp -->
-	<%@ include file="/template/header.jsp"%>
+	<%@ include file="../template/header.jsp"%>
 
 	<section class="contents wrap_left">
 		<div class="left contents_left">
 			
-			<%@ include file="/template/nav.jsp" %>
+			<%@ include file="../template/nav.jsp" %>
 			
 		</div>
 		<div class="right contents_right">
 		
-			<h3><a href="/">홈으로 가기</a></h3>
+			<h3><a href="/index.do">홈으로 가기</a></h3>
 			<div>
-				<a href="./add.jsp">부서 등록</a>
+				<a href="./add.do">부서 등록</a>
 			</div>
 			
 			<h1>Department List</h1>
@@ -58,7 +58,7 @@
 								<%=	list.get(i).getDepartment_id() %>
 							</td>
 							<td>	
-								<a href="./detail.jsp?department_id=<%= list.get(i).getDepartment_id() %>">
+								<a href="./detail.do?department_id=<%= list.get(i).getDepartment_id() %>">
 								<%= list.get(i).getDepartment_name() %></a>
 							</td>
 						</tr>
@@ -69,7 +69,7 @@
 		</div>
 	</section>
 
-	<%@ include file="/template/footer.jsp"%>
+	<%@ include file="../template/footer.jsp"%>
 	
 
 

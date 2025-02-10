@@ -4,13 +4,7 @@
     pageEncoding="UTF-8"%>
 
 <%
-	String id = request.getParameter("department_id");
-
-	DepartmentDTO dto = new DepartmentDTO();
-	dto.setDepartment_id(Long.parseLong(id));
-	
-	DepartmentDAO dao = new DepartmentDAO();
-	dto = dao.getDetail(dto);
+	DepartmentDTO dto = (DepartmentDTO)request.getAttribute("dto");
 %>
 
 <!DOCTYPE html>
@@ -26,19 +20,19 @@
 <body>
 	<!-- Sementic tag -->
 	<!-- JSP 파일 불러오기 : header.jsp -->
-	<%@ include file="/template/header.jsp"%>
+	<%@ include file="../template/header.jsp"%>
 
 	<section class="contents wrap_left">
 		<div class="left contents_left">
 			
-			<%@ include file="/template/nav.jsp" %>
+			<%@ include file="../template/nav.jsp" %>
 			
 		</div>
 		<div class="right contents_right">
 		
 			<h1>Update Form</h1>
 	
-			<form action="./updateProcess.jsp" method="post">
+			<form action="./update.do" method="post">
 			
 				<fieldset>
 					<legend>부서 이름</legend>
@@ -70,7 +64,7 @@
 		</div>
 	</section>
 
-	<%@ include file="/template/footer.jsp"%>
+	<%@ include file="../template/footer.jsp"%>
 	
 
 

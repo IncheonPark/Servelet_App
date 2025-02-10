@@ -4,13 +4,13 @@
     pageEncoding="UTF-8"%>
 
 <%
-	String l_id = request.getParameter("location_id");
-
-	LocationDTO dto = new LocationDTO();
-	dto.setLocation_id(Long.parseLong(l_id));
-	
-	LocationDAO dao = new LocationDAO();
-	dto = dao.getDetail(dto);
+	LocationDTO dto = (LocationDTO)request.getAttribute("dto");
+	System.out.println(dto.getStreet_address());
+	System.out.println(dto.getPostal_code());
+	System.out.println(dto.getCity());
+	System.out.println(dto.getState_province());
+	System.out.println(dto.getCountry_id());
+	System.out.println(dto.getLocation_id());
 	
 %>
 
@@ -24,7 +24,7 @@
 	
 	<h1>지역 수정 페이지</h1>
 	
-	<form action="./updateProcess.jsp" method="post">
+	<form action="./update.do" method="post">
 		<input type="text" name="street_address" value="<%= dto.getStreet_address() %>" >
 		<input type="text" name="postal_code" value="<%= dto.getPostal_code() %>" >
 		<input type="text" name="city" value="<%= dto.getCity() %>" >

@@ -4,12 +4,7 @@
     pageEncoding="UTF-8"%>
 
 <% 
-	DepartmentDAO dao = new DepartmentDAO();
-	DepartmentDTO dto = new DepartmentDTO();
-	String parameter = request.getParameter("department_id");
-	
-	dto.setDepartment_id(Long.parseLong(parameter));
-	dto = dao.getDetail(dto);
+	DepartmentDTO dto = (DepartmentDTO)request.getAttribute("dto");
 %>
 
 <!DOCTYPE html>
@@ -25,17 +20,17 @@
 <body>
 	<!-- Sementic tag -->
 	<!-- JSP 파일 불러오기 : header.jsp -->
-	<%@ include file="/template/header.jsp"%>
+	<%@ include file="../template/header.jsp"%>
 
 	<section class="contents wrap_left">
 		<div class="left contents_left">
 			
-			<%@ include file="/template/nav.jsp" %>
+			<%@ include file="../template/nav.jsp" %>
 			
 		</div>
 		<div class="right contents_right">
 		
-			<h3><a href="/">홈으로 가기</a></h3>
+			<h3><a href="/index.do">홈으로 가기</a></h3>
 	
 			<h1>Dept Detail Page</h1>
 			
@@ -44,8 +39,8 @@
 				<h3><%= dto.getDepartment_name() %></h3>
 				<h3><%= dto.getManager_id() %></h3>
 				
-				<a href="./deleteProcess.jsp?department_id=<%= dto.getDepartment_id() %>">부서 삭제</a>
-				<a href="./update.jsp?department_id=<%= dto.getDepartment_id() %>">부서 수정</a>
+				<a href="./delete.do?department_id=<%= dto.getDepartment_id() %>">부서 삭제</a>
+				<a href="./update.do?department_id=<%= dto.getDepartment_id() %>">부서 수정</a>
 				
 			<% } else { %>
 				<h3>없는 부서입니다.</h3>
@@ -55,7 +50,7 @@
 		</div>
 	</section>
 
-	<%@ include file="/template/footer.jsp"%>
+	<%@ include file="../template/footer.jsp"%>
 	
 
 

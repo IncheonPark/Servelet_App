@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,18 +11,18 @@
 <body>
 	<!-- Sementic tag -->
 	<!-- JSP 파일 불러오기 : header.jsp -->
-	<%@ include file="/template/header.jsp"%>
+	<%@ include file="../template/header.jsp"%>
 
 	<section class="contents wrap_left">
 		<div class="left contents_left">
-			
-			<%@ include file="/template/nav.jsp" %>
+			<!-- JSP 파일 불러오기 : nav.jsp -->
+			<%@ include file="../template/nav.jsp" %>
 			
 		</div>
 		<div class="right contents_right"></div>
 	</section>
-
-	<%@ include file="/template/footer.jsp"%>
+	<!-- JSP 파일 불러오기 : footer.jsp -->
+	<%@ include file="../template/footer.jsp"%>
 	
 
 

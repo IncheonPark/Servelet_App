@@ -4,12 +4,7 @@
     pageEncoding="UTF-8"%>
 
 <%
-	LocationDAO dao = new LocationDAO();
-	LocationDTO dto = new LocationDTO();
-	String parameter = request.getParameter("location_id");
-	
-	dto.setLocation_id(Long.parseLong(parameter));
-	dto = dao.getDetail(dto);
+	LocationDTO dto = (LocationDTO)request.getAttribute("dto");
 %>
 
 <!DOCTYPE html>
@@ -20,7 +15,7 @@
 </head>
 <body>
 	
-	<h3><a href="/">홈으로 가기</a></h3>
+	<h3><a href="/index.do">홈으로 가기</a></h3>
 	
 	<h1>Location Detail Page</h1>
 	
@@ -29,8 +24,8 @@
 		<h3><%= dto.getCity() %></h3>
 		<h3><%= dto.getStreet_address() %></h3>
 		
-		<a href="./deleteProcess.jsp?location_id=<%= dto.getLocation_id() %>" >지역 삭제</a>
-		<a href="./update.jsp?location_id=<%= dto.getLocation_id() %>">지역 수정</a>
+		<a href="./delete.do?location_id=<%= dto.getLocation_id() %>" >지역 삭제</a>
+		<a href="./update.do?location_id=<%= dto.getLocation_id() %>">지역 수정</a>
 		
 	<% } else { %>
 		<h3>없는 지역입니다.</h3>

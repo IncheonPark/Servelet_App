@@ -9,9 +9,47 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-    <!-- XML : '배포 서술자'라고 부른다. -->
-    <!-- XML상에서는 자유롭게 태그 이름 짓기가 가능하다 -->
-    
+  
+  <!-- XML : '배포 서술자 DD'라고 부른다. -->
+  <!-- XML상에서는 자유롭게 태그 이름 짓기가 가능하다 -->
+  <!-- Servlet 객체 생성 -->
+  <!-- Full Quality Domain name 전체 경로(패키지.클래스)-->
+  <servlet>
+  	<servlet-name>homeController</servlet-name>
+  	<servlet-class>com.winter.app.HomeController</servlet-class>
+  </servlet>
+  
+  <!-- 어떤 요청이 왔을 때 누구를 실행할 것인지 지정 -->
+  <servlet-mapping>
+  	<servlet-name>homeController</servlet-name>
+  	<url-pattern> /index.do </url-pattern> <!-- 경로 적을 때 절대 경로로 적으시오 -->
+  </servlet-mapping>
+  
+  <!-- 부서 관리 컨트롤러 -->
+  <servlet>
+  	<servlet-name>departmentController</servlet-name>
+  	<servlet-class>com.winter.app.departments.DepartmentController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>departmentController</servlet-name>
+  	<url-pattern> /departments/* </url-pattern> <!-- 경로 적을 때 절대 경로로 적으시오 -->
+  </servlet-mapping>
+	    
+
+  <!-- 지역 관리 컨트롤러 -->
+  <servlet>
+  	<servlet-name>locationController</servlet-name>
+  	<servlet-class>com.winter.app.locations.LocationController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>locationController</servlet-name>
+  	<url-pattern>/locations/*</url-pattern>
+  </servlet-mapping>
+
+  
+  <!-- 인코딩 필터 (한글 깨짐 방지) -->  
   <filter>
   	<filter-name>encode</filter-name>
   	<filter-class>com.winter.app.filters.EncodingFilter</filter-class>
