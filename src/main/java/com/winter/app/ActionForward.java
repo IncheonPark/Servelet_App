@@ -2,7 +2,9 @@ package com.winter.app;
 
 public class ActionForward {
 	
-	// true > forward 실행, false > redirect 실행
+	// *** true > forward 실행
+	// *** false > redirect 실행
+	
 	private boolean flag;
 	
 	// forward시 jsp의 경로 또는 redirect시 url 경로

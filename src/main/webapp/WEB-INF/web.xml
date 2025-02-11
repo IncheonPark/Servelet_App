@@ -47,6 +47,18 @@
   	<servlet-name>locationController</servlet-name>
   	<url-pattern>/locations/*</url-pattern>
   </servlet-mapping>
+  
+  
+  <!-- 사원 관리 컨트롤러 -->
+  <servlet>
+  	<servlet-name>employeeController</servlet-name>
+  	<servlet-class>com.winter.app.employees.EmployeeController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>employeeController</servlet-name>
+  	<url-pattern>/employees/*</url-pattern>
+  </servlet-mapping>
 
   
   <!-- 인코딩 필터 (한글 깨짐 방지) -->  

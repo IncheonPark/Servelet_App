@@ -70,7 +70,9 @@ public class LocationController extends HttpServlet {
 				
 			case "update.do" :
 				String updateMethod = request.getMethod();
+				
 				if (updateMethod.toUpperCase().equals("POST")) {
+					System.out.println("update() 실행합니다.");
 					service.update(request, forward);
 					
 				} else {					
@@ -92,7 +94,9 @@ public class LocationController extends HttpServlet {
 			
 		}
 		
+		System.out.println("result : " + request.getAttribute("result"));
 		String path = forward.getPath();
+		System.out.println("path : " + path);
 		
 		//jsp 연결
 		//path : jsp의 경로(절대 경로)

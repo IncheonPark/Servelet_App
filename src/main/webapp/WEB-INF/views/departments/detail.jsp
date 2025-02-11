@@ -1,12 +1,11 @@
-<%@page import="com.winter.app.departments.DepartmentDTO"%>
-<%@page import="com.winter.app.departments.DepartmentDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 <% 
-	DepartmentDTO dto = (DepartmentDTO)request.getAttribute("dto");
+	// 기존 스크립트릿 주석 처리하고 EL로 써보기	
+	// DepartmentDTO dto = (DepartmentDTO)request.getAttribute("dto");
 %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,18 +33,34 @@
 	
 			<h1>Dept Detail Page</h1>
 			
-			<% if(dto != null) { %>
-				<h3><%= dto.getDepartment_id() %></h3>
-				<h3><%= dto.getDepartment_name() %></h3>
-				<h3><%= dto.getManager_id() %></h3>
+			<c:choose>
+				<c:when test="${not empty dto }">
+					<h3>${dto.department_id}</h3>
+					<h3>${dto.department_name }</h3>
+					<h3>${dto.manager_id }</h3>
+					
+					<a href="./delete.do?department_id=${requestScope.dto.department_id}">부서 삭제</a>
+					<a href="./update.do?department_id=${requestScope.dto.department_id}">부서 수정</a>
+				</c:when>
+					
+				<c:otherwise>
+					<h3>부서 정보 없음</h3>
+				</c:otherwise>
 				
-				<a href="./delete.do?department_id=<%= dto.getDepartment_id() %>">부서 삭제</a>
-				<a href="./update.do?department_id=<%= dto.getDepartment_id() %>">부서 수정</a>
+			</c:choose>
+			
+			<%-- <c:if test="${not empty dto}">
+				<h3>${dto.department_id}</h3>
+				<h3>${dto.department_name }</h3>
+				<h3>${dto.manager_id }</h3>
 				
-			<% } else { %>
-				<h3>없는 부서입니다.</h3>
-				
-			<% } %>
+				<a href="./delete.do?department_id=${requestScope.dto.department_id}">부서 삭제</a>
+				<a href="./update.do?department_id=${requestScope.dto.department_id}">부서 수정</a>
+			</c:if>
+			
+			<c:if test="${empty dto}">
+				<h3>부서 정보 없음</h3>
+			</c:if> --%>
 		
 		</div>
 	</section>

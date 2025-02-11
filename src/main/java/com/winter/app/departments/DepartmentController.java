@@ -94,7 +94,7 @@ public class DepartmentController extends HttpServlet {
 				
 				String method = request.getMethod();
 				if (method.toUpperCase().equals("POST")) {
-					service.add(request, forward);;
+					service.add(request, forward);
 					
 				} else {
 					forward.setFlag(true);

@@ -36,7 +36,20 @@
 	.menu {
 		background-color:silver;
 		border-left: 3px solid black;
+		display: flex;
+		justify-content: flex-end;
 
+	}
+	
+	.menu ul {
+		display: flex;
+		
+	}
+	
+	.menu > ul > li {
+		line-height: 70px;
+		margin-right: 30px;
+		font-weight: bold;
 	}
 	
 	/* contents 영역*/

@@ -89,14 +89,14 @@ public class LocationService {
 	
 	
 	//
-	public void update(HttpServletRequest request, ActionForward forward) throws Exception {
+	public void update(HttpServletRequest request, ActionForward forward) throws Exception {		
 		
 		LocationDTO dto = new LocationDTO();
-		dto.setStreet_address("street_address");
-		dto.setPostal_code("postal_code");
-		dto.setCity("city");
-		dto.setState_province("state_province");
-		dto.setCountry_id("country_id");
+		dto.setStreet_address(request.getParameter("street_address"));
+		dto.setPostal_code(request.getParameter("postal_code"));
+		dto.setCity(request.getParameter("city"));
+		dto.setState_province(request.getParameter("state_province"));
+		dto.setCountry_id(request.getParameter("country_id"));
 		dto.setLocation_id(Long.parseLong(request.getParameter("location_id")));
 		
 		int isDone = dao.update(dto);

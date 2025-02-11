@@ -1,16 +1,7 @@
-<%@page import="com.winter.app.departments.DepartmentDTO"%>
-<%@page import="java.util.List"%>
-<%@page import="com.winter.app.departments.DepartmentDAO"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
-    
-<!-- 자바 코드는 % 사용-->    
-<% 
-	// '스크립틀릿'이라 부른다.
-	Object dtoList = request.getAttribute("list");
-	List<DepartmentDTO> list = (List<DepartmentDTO>)dtoList;
-%>    
-    
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
 <!DOCTYPE html>
 <html>
@@ -52,17 +43,25 @@
 					</thead>
 					
 					<tbody>
-						<% for (int i=0; i < list.size(); i++) { %>
-						<tr>
-							<td>
-								<%=	list.get(i).getDepartment_id() %>
-							</td>
-							<td>	
-								<a href="./detail.do?department_id=<%= list.get(i).getDepartment_id() %>">
-								<%= list.get(i).getDepartment_name() %></a>
-							</td>
-						</tr>
-						<% } %>
+						<c:forEach items="${list }" var="dto" varStatus="st"> <!-- items는 list의 갯수만큼 반복한다 -->
+							<tr>
+								<td>
+									${pageScope.dto.department_id }									
+									<%-- forEach에서 items 사용 시 쓸 수 있는 여러 기능 
+									<h4>현재 아이템 : ${st.current }</h4>
+									<h4>인덱스 번호 : ${st.index }</h4>
+									<h4>카운트 : ${st.count }</h4>
+									<h4>첫번째 여부 : ${st.first }</h4>
+									<h4>마지막 여부 : ${st.last }</h4> --%>
+								</td>
+								<td>	
+									<a href="./detail.do?department_id=${pageScope.dto.department_id }">
+									${pageScope.dto.department_name }</a>
+								</td>
+							</tr>
+						
+						</c:forEach>
+						
 					</tbody>
 				</table>
 			</div>

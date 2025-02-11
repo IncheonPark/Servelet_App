@@ -4,7 +4,7 @@
     pageEncoding="UTF-8"%>
 
 <%
-	DepartmentDTO dto = (DepartmentDTO)request.getAttribute("dto");
+	//DepartmentDTO dto = (DepartmentDTO)request.getAttribute("dto");
 %>
 
 <!DOCTYPE html>
@@ -36,21 +36,21 @@
 			
 				<fieldset>
 					<legend>부서 이름</legend>
-					<input type="text" name="department_name" value="<%= dto.getDepartment_name() %>">
+					<input type="text" name="department_name" value="${request.dto.department_name}">
 
 				</fieldset>
 				<fieldset>
 					<legend>매니저 아이디</legend>
-					<input type="text" name="manager_id" value="<%= dto.getManager_id() %>">
+					<input type="text" name="manager_id" value="${dto.manager_id}">
 
 				</fieldset>
 				<fieldset>
 					<legend>지역 아이디</legend>
-					<input type="text" name="location_id" value="<%= dto.getLocation_id() %>">
+					<input type="text" name="location_id" value="${dto.location_id}">
 
 				</fieldset>
 				<fieldset>
-					<input type="hidden" name="department_id" value="<%= dto.getDepartment_id() %>">
+					<input type="hidden" name="department_id" value="${dto.department_id}">
 
 				</fieldset>
 			
