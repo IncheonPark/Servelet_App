@@ -12,21 +12,20 @@ import javax.servlet.http.HttpServletResponse;
 import com.winter.app.ActionForward;
 
 /**
- * Servlet implementation class EmployeeContoller
+ * Servlet implementation class EmployeeController
  */
-@WebServlet("/EmployeeContoller")
+@WebServlet("/EmployeeController")
 public class EmployeeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private EmployeeService service;
-	
-	
+	private EmployeeService employeeService;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
     public EmployeeController() {
         super();
-        service = new EmployeeService();
+        // TODO Auto-generated constructor stub
+        employeeService = new EmployeeService();
     }
 
 	/**
@@ -34,34 +33,65 @@ public class EmployeeController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("부서 관리 컨트롤러 doGet실행");
+		System.out.println("사원 관리 컨트롤 doGet 실행");
 		
-		ActionForward forward = new ActionForward();
+		String uri = request.getRequestURI();		
+		uri = uri.substring(uri.lastIndexOf("/")+1);
 		
+		ActionForward actionForward = new ActionForward();
 		
 		try {
-			String method = request.getMethod();
-			if (method.toUpperCase().equals("POST")) {
-				service.add(request, forward);
+			if(uri.equals("join.do")) {
 				
-			} else {
-				forward.setFlag(true);
-				forward.setPath("/WEB-INF/views/employees/add.jsp");
+				String method = request.getMethod();
+				
+				if(method.toUpperCase().equals("POST")) {
+					employeeService.add(request, actionForward);
+					
+				} else {
+					actionForward.setFlag(true);
+					actionForward.setPath("/WEB-INF/views/employees/join.jsp");
+					
+				}
+				
+			} else if(uri.equals("login.do")) {
+				
+				String method = request.getMethod();
+				
+				if(method.toUpperCase().equals("POST")) {
+					employeeService.login(request, actionForward);
+					
+				} else {
+					actionForward.setFlag(true);
+					actionForward.setPath("/WEB-INF/views/employees/login.jsp");
+					
+				}
+			} else if (uri.equals("update.do")) {
+				
+				String method = request.getMethod();
+				
+				if(method.toUpperCase().equals("POST")) {
+					employeeService.update(request, actionForward);
+					
+				} else {
+					actionForward.setFlag(true);
+					employeeService.detail(request, actionForward);
+					
+				}
 				
 			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			
 		}
 		
-		if(forward.isFlag()) {
-			RequestDispatcher view = request.getRequestDispatcher(forward.getPath());			
+		if(actionForward.isFlag()) {
+			RequestDispatcher view = request.getRequestDispatcher(actionForward.getPath());
 			view.forward(request, response);
 			
 		} else {
-			// redirect
-			response.sendRedirect(forward.getPath());
+			//Flag가 false라면 redirect 실행
+			response.sendRedirect(actionForward.getPath());
 			
 		}
 		
@@ -75,5 +105,6 @@ public class EmployeeController extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	
 
 }

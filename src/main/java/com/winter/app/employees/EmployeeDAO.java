@@ -9,6 +9,43 @@ import com.winter.app.utils.DBConnection;
 public class EmployeeDAO {
 	
 	
+	// 상세 조회 메서드
+	public EmployeeDTO detail(EmployeeDTO dto) throws Exception {
+		
+		Connection con = DBConnection.getConnection();
+		String sql = "SELECT * FROM EMPLOYEES WHERE EMPLOYEE_ID = ?";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setLong(1, dto.getEmployee_id());
+		
+		ResultSet rs = st.executeQuery();
+		
+		EmployeeDTO result = null;
+		if (rs.next()) {
+			result = new EmployeeDTO();
+
+			result.setFirst_name(rs.getString("FIRST_NAME"));
+			result.setLast_name(rs.getString("LAST_NAME"));
+			result.setEmail(rs.getString("EMAIL"));
+			result.setPhone_number(rs.getString("PHONE_NUMBER"));
+			result.setJob_id(rs.getString("JOB_ID"));
+			result.setPassword(rs.getString("PASSWORD"));
+			
+			result.setSalary(rs.getDouble("SALARY"));
+			result.setCommission_pct(rs.getDouble("COMMISSION_PCT"));
+			
+			result.setManager_id(rs.getLong("MANAGER_ID"));
+			result.setDepartment_id(rs.getLong("DEPARTMENT_ID"));
+		
+			result.setHire_date(rs.getDate("HIRE_DATE"));
+						
+		}
+		
+		return result;
+		
+	}
+	
+	
 	// 조회 메서드
 	public EmployeeDTO login(EmployeeDTO dto) throws Exception {
 		
@@ -64,6 +101,28 @@ public class EmployeeDAO {
 		
 		DBConnection.disConnection(st, con);
 		return result;
+		
+	}
+	
+	
+	//
+	public int update(EmployeeDTO dto) throws Exception {
+		
+		Connection con = DBConnection.getConnection();
+		
+		String sql = "UPDATE EMPLOYEES SET FIRST_NAME=?, LAST_NAME=? WHERE EMPLOYEE_ID=?";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setString(1, dto.getFirst_name());
+		st.setString(2, dto.getLast_name());
+		st.setLong(3, dto.getEmployee_id());
+		
+		int result = st.executeUpdate();
+		
+		DBConnection.disConnection(st, con);
+		return result;
+		
 		
 	}
 	

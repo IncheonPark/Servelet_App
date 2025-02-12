@@ -18,6 +18,15 @@ public class EmployeeService {
 	}
 	
 	
+	// detail
+	public void detail(HttpServletRequest request, ActionForward forward) throws Exception {
+		
+		EmployeeDTO dto = (EmployeeDTO)request.getSession().getAttribute("user");
+		
+	}
+	
+	
+	
 	// login 메서드
 	public void login(HttpServletRequest request, ActionForward forward) throws Exception {
 		
@@ -81,6 +90,28 @@ public class EmployeeService {
 //		forward.setPath("/WEB-INF/views/commons/result.jsp");
 		
 	}
+	
+	
+	//
+	public void update(HttpServletRequest request, ActionForward forward) throws Exception {
+		
+		EmployeeDTO session = (EmployeeDTO)request.getSession().getAttribute("user");
+		EmployeeDTO dto = new EmployeeDTO();
+		dto.setFirst_name(request.getParameter("first_name"));
+		dto.setLast_name(request.getParameter("last_name"));
+		dto.setEmployee_id(session.getEmployee_id());
+		
+		int result = dao.update(dto);
+		
+		forward.setFlag(false);
+		forward.setPath("./mypage.do");
+		
+	}
+	
+	
+	
+	
+	
 	
 
 }
