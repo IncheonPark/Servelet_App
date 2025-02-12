@@ -1,14 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-	<footer class="wrap_left">
-		<div class="left footer_left"></div>
-		<div class="right footer_right">
-			<nav class="right footerMenu">
-				<div>
-					<p>comment</p>
-				</div>
-			</nav>
-		</div>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-	</footer>
+<footer class="parent">
+    <div class="footer_left left child"></div>
+    <div class="footer_right right child"></div>
+</footer>

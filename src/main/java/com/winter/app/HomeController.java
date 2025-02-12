@@ -31,18 +31,17 @@ public class HomeController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("doGet 실행");
 		
-		// Cookie 생성
-//		Cookie cookie = new Cookie("my", "test");
-//		cookie.setMaxAge(60);
-//		
-//		response.addCookie(cookie); 
+		String uri = request.getRequestURI();
+		uri = uri.substring(uri.lastIndexOf("/")+1);
 		
+		switch (uri) {
+		case "index.do" :
+			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/index.jsp");
+			view.forward(request, response);
+			
+			break;
 		
-		// jsp 연결
-		// path : jsp의 경로(절대 경로)
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/index.jsp");
-		// jsp fowarding
-		view.forward(request, response);
+		}
 		
 	}
 
