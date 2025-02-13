@@ -13,6 +13,14 @@
 
 </head>
 <body>
+	
+		<script type="text/javascript">
+			alert("${requestScope.result}");
+			location.href="${requestScope.path}";
+		</script>
+	
+		
+
     <%@ include file="/WEB-INF/views/template/header.jsp" %>
     
 
@@ -22,7 +30,8 @@
     </div>
     <div class="section_right right child">
         <div class="content">
-			<h1>여기는 홈 화면입니다</h1>
+			<h1>여기는 처리 결과 화면입니다</h1>
+			
         </div>
     </div>
 	</section>

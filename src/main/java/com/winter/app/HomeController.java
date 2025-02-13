@@ -29,7 +29,7 @@ public class HomeController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("doGet 실행");
+		System.out.println("Home doGet 실행");
 		
 		String uri = request.getRequestURI();
 		uri = uri.substring(uri.lastIndexOf("/")+1);
