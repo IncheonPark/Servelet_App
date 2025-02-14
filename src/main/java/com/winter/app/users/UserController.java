@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.winter.app.ActionForward;
+import com.winter.app.accounts.AccountController;
 
 
 @WebServlet("/UserController")
@@ -91,6 +92,7 @@ public class UserController extends HttpServlet {
 			} else if (uri.equals("mypage.do")) {
 				
 				service.detail(request, forward);
+				service.getList(request, forward);
 				
 				forward.setFlag(true);
 				forward.setPath("/WEB-INF/views/users/mypage.jsp");

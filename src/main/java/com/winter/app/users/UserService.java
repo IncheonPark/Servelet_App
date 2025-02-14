@@ -1,9 +1,12 @@
 package com.winter.app.users;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.winter.app.ActionForward;
+import com.winter.app.accounts.AccountDTO;
 
 public class UserService {
 	
@@ -94,6 +97,19 @@ public class UserService {
 	}
 	
 	
+	//
+	public void getList(HttpServletRequest request, ActionForward forward) throws Exception {
+		
+		UserDTO userDTO = (UserDTO)request.getSession().getAttribute("user");	
+		AccountDTO dto = new AccountDTO();
+		dto.setUserName(userDTO.getUserName());
+		
+		List<AccountDTO> list = dao.getList(dto);
+		
+		request.setAttribute("list", list);
+		
+		
+	}
 	
 	
 	

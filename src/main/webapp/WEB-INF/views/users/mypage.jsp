@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/reset.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/layout.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/form.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/table.css">
 
 </head>
 <body>
@@ -24,7 +25,7 @@
     <div class="section_right right child">
         
 			
-			<div class="login-wrapper">
+		<div class="login-wrapper">
 			<h2>유저 정보</h2>
 			<form method="post" action="" id="login-form">
 				<input type="hidden" name="userName" value="${sessionScope.user.userName}">
@@ -36,8 +37,42 @@
 				<a href="./update.do"><input type="button" value="정보 수정"></a>
 			</form>
         </div>
-						
-        
+        							
+			<table class="table1">
+				<thead>
+					<tr>
+						<th>계좌번호</th> <th>예금주</th> <th>상품번호</th> <th>잔액</th> <th>생성일</th>
+					</tr>
+					
+				</thead>
+				<tbody>
+				<c:if test="${not empty requestScope.list }">
+					<c:forEach var="dtoA" items="${requestScope.list}">
+						<tr>
+							<td>${dtoA.accountNum }</td>
+							<td>${dtoA.userName }</td>
+							<td>${dtoA.productNum }</td>
+							<td>${dtoA.accountBalance }</td>
+							<td>${dtoA.date }</td>
+														
+						</tr>
+					</c:forEach>
+				</c:if>
+				<c:if test="${empty requestScope.list }">
+					<tr>
+						<td>계좌정보 없음</td>
+						<td>계좌정보 없음</td>
+						<td>계좌정보 없음</td>
+						<td>계좌정보 없음</td>
+						<td>계좌정보 없음</td>
+													
+					</tr>
+				</c:if>
+										
+				</tbody>
+			</table>
+				
+				
     </div>
 	</section>
     

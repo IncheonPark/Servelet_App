@@ -10,12 +10,8 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="/resources/css/reset.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/layout.css">
-<style>
-	.home_p{
-		font-size: 30px;
-		font-weight: bolder;
-	}
-</style>
+<link rel="stylesheet" type="text/css" href="/resources/css/form.css">
+
 </head>
 <body>
     <%@ include file="/WEB-INF/views/template/header.jsp" %>
@@ -26,12 +22,22 @@
         <%@ include file="/WEB-INF/views/template/nav.jsp" %>
     </div>
     <div class="section_right right child">
-        <div class="content">
-			<p class="home_p">환영합니다 (메인 화면)</p>
+        <div class="login-wrapper">
+			<h2>상품 정보 변경</h2>
+			<form method="post" action="./update.do" id="login-form">
+				
+				<input type="text" name="productNum" value="${dtoSS.productNum}" readonly>
+				<input type="text" name="productName" value="${dtoSS.productName}">
+				<input type="text" name="productRate" value="${dtoSS.productRate}">
+				<input type="date" name="productDate" value="${dtoSS.productDate}">
+				<input type="text" name="productDetail" value="${dtoSS.productDetail}">
+				
+				<input type="submit" value="상품 수정하기">
+			</form>
         </div>
     </div>
 	</section>
-    
+	   
 
     <%@ include file="/WEB-INF/views/template/footer.jsp" %>
     

@@ -15,12 +15,14 @@
         <ul class="header_nav">
         
         	<c:if test="${empty sessionScope.user }">
+	            <li><a href="/products/list.do">상품 목록</a></li>
 	            <li><a href="/users/login.do">로그인</a></li>
-	            <li><a href="/users/join.do">회원가입</a></li>        	
+	            <li><a href="/users/join.do">회원가입</a></li>
         	</c:if>
         	
         	<c:if test="${not empty sessionScope.user }">
         		<li>${user.name }님 접속 중</li>
+        		<li><a href="/products/list.do">상품 목록</a></li>
         		<li><a href="/users/logout.do">로그아웃</a></li>
 	            <li><a href="/users/mypage.do">마이페이지</a></li>
         	</c:if>

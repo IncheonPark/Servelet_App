@@ -3,7 +3,10 @@ package com.winter.app.users;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.winter.app.accounts.AccountDTO;
 import com.winter.app.utils.DBConnection;
 
 public class UserDAO {
@@ -89,6 +92,36 @@ public class UserDAO {
 	}
 	
 	
+	
+	// userName이 일치하는 계좌 목록 불러오기
+		public List<AccountDTO> getList(AccountDTO dtoA) throws Exception {
+			
+			Connection con = DBConnection.getConnection();
+			String sql = "SELECT * FROM ACCOUNTS WHERE USERNAME=?";
+			
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, dtoA.getUserName());
+			
+			ResultSet rs = st.executeQuery();
+			
+			List<AccountDTO> list = new ArrayList<AccountDTO>();
+			
+			while(rs.next()) {
+				AccountDTO dto = new AccountDTO();
+				dto.setAccountNum(rs.getLong("ACCOUNTNUM"));
+				dto.setUserName(rs.getString("USERNAME"));
+				dto.setProductNum(rs.getLong("PRODUCTNUM"));
+				dto.setAccountBalance(rs.getLong("ACCOUNTBALANCE"));
+				dto.setDate(rs.getDate("ACCOUNTDATE"));
+				
+				list.add(dto);
+				System.out.println("list 사이즈 " + list.size());
+			}
+			
+			DBConnection.disConnection(rs, st, con);
+			return list;
+			
+		}
 	
 	
 	

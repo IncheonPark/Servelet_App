@@ -35,6 +35,28 @@
   	<servlet-name>userController</servlet-name>
   	<url-pattern>/users/*</url-pattern>
   </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>productController</servlet-name>
+  	<servlet-class>com.winter.app.products.ProductController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>productController</servlet-name>
+  	<url-pattern>/products/*</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>accountController</servlet-name>
+  	<servlet-class>com.winter.app.accounts.AccountController</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>accountController</servlet-name>
+  	<url-pattern>/accounts/*</url-pattern>
+  </servlet-mapping>
     
   
   <!-- 인코딩 필터 (한글 깨짐 방지) -->  

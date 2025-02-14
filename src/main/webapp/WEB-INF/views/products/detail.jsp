@@ -10,11 +10,9 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="/resources/css/reset.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/layout.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/table.css">
 <style>
-	.home_p{
-		font-size: 30px;
-		font-weight: bolder;
-	}
+	
 </style>
 </head>
 <body>
@@ -26,8 +24,32 @@
         <%@ include file="/WEB-INF/views/template/nav.jsp" %>
     </div>
     <div class="section_right right child">
+    	
         <div class="content">
-			<p class="home_p">환영합니다 (메인 화면)</p>
+        
+        	<a href="./update.do?productNum=${dtoSS.productNum}"><input type="button" value="상품 수정"></a>
+        	<a href="../accounts/make.do?productNum=${dtoSS.productNum}"><input type="button" value="상품 가입"></a>
+        	
+			<table class="table1">
+				<thead>
+					<tr>
+						<th>상품번호</th> <th>이름</th> <th>연이율</th> <th>생성일</th> <th>설명</th>
+					</tr>
+					
+				</thead>
+				<tbody>
+					
+						<tr>
+							<td>${dtoSS.productNum }</td>
+							<td>${dtoSS.productName }</td>
+							<td>${dtoSS.productRate }</td>
+							<td>${dtoSS.productDate }</td>
+							<td>${dtoSS.productDetail }</td>
+						</tr>
+										
+				</tbody>
+			</table>
+			
         </div>
     </div>
 	</section>
