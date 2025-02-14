@@ -23,9 +23,12 @@
     </div>
     <div class="section_right right child">    	
         <div class="content">
-        	<div>
-        		<a href="./add.do"><input type="button" value="상품 등록"></a>        		
-        	</div>
+        	<c:if test="${not empty sessionScope.user }">
+        		<div>
+        			<a href="./add.do"><input type="button" value="상품 등록"></a>      		
+        		</div>
+        	</c:if>
+        	
 			<table class="table1">
 				<thead>
 					<tr>

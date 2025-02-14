@@ -27,8 +27,8 @@
 			<form method="post" action="./login.do" id="login-form">
 				<input type="text" name="userName" placeholder="아이디">
 				<input type="password" name="password" placeholder="비밀번호">
-				<label for="remember-check">
-					<input type="checkbox" id="remember-check">아이디 저장하기
+				<label style="cursor:pointer;" for="remember-check">
+					<input style="cursor:pointer;" type="checkbox" id="remember-check">아이디 저장하기
 				</label>
 				<input type="submit" value="로그인 하기">
 			</form>

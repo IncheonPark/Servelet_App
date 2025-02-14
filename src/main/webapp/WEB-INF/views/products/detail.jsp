@@ -26,8 +26,11 @@
     <div class="section_right right child">
     	
         <div class="content">
-        
-        	<a href="./update.do?productNum=${dtoSS.productNum}"><input type="button" value="상품 수정"></a>
+        	
+        	<c:if test="${not empty sessionScope.user }">
+        		<a href="./update.do?productNum=${dtoSS.productNum}"><input type="button" value="상품 수정"></a>
+        	</c:if>
+        	
         	<a href="../accounts/make.do?productNum=${dtoSS.productNum}"><input type="button" value="상품 가입"></a>
         	
 			<table class="table1">
